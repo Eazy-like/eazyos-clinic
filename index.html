@@ -1,92 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Eazy.OS Clinic</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#0d0d0d; color:white; }
-    header { padding:20px; text-align:center; background:#141414; }
-    h1 { margin:0; font-size:2rem; }
-    section { padding:20px; max-width:800px; margin:auto; }
-    .card { background:#1a1a1a; padding:20px; border-radius:10px; margin-bottom:20px; }
-    a.button { display:inline-block; padding:10px 20px; background:#3d8bfd; color:white; text-decoration:none; border-radius:8px; margin-top:10px; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EAZY.OS Clinic — Welcome</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: radial-gradient(circle at 50% 50%, #0a0a0f, #000000);
+        font-family: 'Inter', sans-serif;
+        overflow: hidden;
+        color: white;
+    }
+
+    /* Shooting stars */
+    .star {
+        position: absolute;
+        width: 2px;
+        height: 40px;
+        background: linear-gradient(white, rgba(255,255,255,0));
+        opacity: 0.8;
+        transform: rotate(45deg);
+        animation: shoot 2.2s linear infinite;
+    }
+
+    @keyframes shoot {
+        0% { transform: translate(-200px, -200px) rotate(45deg); opacity: 1; }
+        100% { transform: translate(120vw, 120vh) rotate(45deg); opacity: 0; }
+    }
+
+    /* Center container */
+    .container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: 90%;
+    }
+
+    .title {
+        font-size: 3rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        margin-bottom: 10px;
+        background: linear-gradient(90deg, #ffffff, #5b5bf7);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+        opacity: 0.8;
+        margin-bottom: 40px;
+    }
+
+    /* Chart clarity animation bars */
+    .chart {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        gap: 6px;
+        height: 120px;
+        margin-bottom: 30px;
+    }
+
+    .bar {
+        width: 10px;
+        background: #5b5bf7;
+        border-radius: 4px;
+        animation: grow 1.2s infinite ease-in-out;
+    }
+
+    .bar:nth-child(2) { animation-delay: 0.1s; }
+    .bar:nth-child(3) { animation-delay: 0.2s; }
+    .bar:nth-child(4) { animation-delay: 0.3s; }
+    .bar:nth-child(5) { animation-delay: 0.4s; }
+
+    @keyframes grow {
+        0% { height: 20px; opacity: 0.3; }
+        50% { height: 100px; opacity: 1; }
+        100% { height: 20px; opacity: 0.3; }
+    }
+
+    /* Calculating text animation */
+    .calculating {
+        font-size: 1rem;
+        opacity: 0.7;
+        animation: blink 1.5s infinite;
+    }
+
+    @keyframes blink {
+        0%, 100% { opacity: 0.4; }
+        50% { opacity: 1; }
+    }
+
+    /* Footer */
+    .footer {
+        position: absolute;
+        bottom: 20px;
+        width: 100%;
+        text-align: center;
+        opacity: 0.4;
+        font-size: 0.8rem;
+    }
+</style>
 </head>
+
 <body>
-  <header>
-    <h1>Eazy.OS Clinic</h1>
-    <p>Clear Guidance • Modern Support • Real Results</p>
-  </header>
 
-  <section>
-    <h2>Our Services</h2>
+<!-- Shooting stars generated automatically -->
+<script>
+    for (let i = 0; i < 12; i++) {
+        let star = document.createElement("div");
+        star.classList.add("star");
+        star.style.top = Math.random() * -300 + "px";
+        star.style.left = Math.random() * -300 + "px";
+        star.style.animationDelay = (Math.random() * 4) + "s";
+        document.body.appendChild(star);
+    }
+</script>
 
-    <!-- What happens after payment -->
-    <p style="opacity:0.85; margin-bottom:20px;">
-      After payment, you'll receive an email within 24 hours with your next steps —
-      either a booking link or a written response, depending on the service.
-    </p>
+<div class="container">
+    <div class="title">EAZY.OS CLINIC</div>
+    <div class="subtitle">A clean launch is being prepared behind the scenes.</div>
 
-    <!-- QUICK HELP -->
-    <div class="card">
-      <h3>Quick Help — £25</h3>
-      <p>A focused, one-problem session delivering fast clarity + a clean solution.</p>
-      <a class="button" href="https://buy.stripe.com/7sYcN7dov2MraC23ljeEo00" target="_blank">
-        Pay £25
-      </a>
+    <div class="chart">
+        <div class="bar"></div><div class="bar"></div>
+        <div class="bar"></div><div class="bar"></div>
+        <div class="bar"></div>
     </div>
 
-    <!-- GUIDED SETUP -->
-    <div class="card">
-      <h3>Guided Setup — £45</h3>
-      <p>Step-by-step walkthrough to set up tools, workflows, or processes with no stress.</p>
-      <a class="button" href="https://buy.stripe.com/6oUcN7fwD3Qv9xY6xveEo01" target="_blank">
-        Pay £45
-      </a>
+    <div class="calculating">
+        Calculating clarity… projecting precision… increasing speed…  
     </div>
 
-    <!-- MICRO OS -->
-    <div class="card">
-      <h3>Micro-O.S System — £95</h3>
-      <p>A personalised mini-system tailored to your situation. Delivered within 24 hours.</p>
-      <a class="button" href="https://buy.stripe.com/28EfZjeszgDhdOe3ljeEo02" target="_blank">
-        Pay £95
-      </a>
-    </div>
+</div>
 
-    <!-- EXECUTIVE CONSULTATION -->
-    <div class="card">
-      <h3>Consultation (Executive Tier) — £150</h3>
-      <p>A strategic clarity session for individuals or businesses seeking structured direction.</p>
-      <a class="button" href="https://buy.stripe.com/aFaaEZ5W386LdOeaNLeEo03" target="_blank">
-        Pay £150
-      </a>
-    </div>
-
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" style="padding: 60px 20px; background:#000; color:#fff; text-align:center;">
-    <h2 style="font-size: 2.2rem; margin-bottom: 10px;">Need help? Reach out anytime.</h2>
-    <p style="font-size: 1.1rem; opacity: 0.85; margin-bottom: 30px;">
-      We reply fast — whether you need clarity, guidance, or hands-on support.
-    </p>
-
-    <div style="max-width: 600px; margin: auto; text-align:left; line-height:1.8;">
-      <p><strong>Email:</strong> support@eazyosclinic.com</p>
-      <p><strong>Response Time:</strong> Under 24 hours</p>
-      <p><strong>Services:</strong> Quick Help • Guided Setup • Micro-O.S Builds</p>
-      <p><strong>Location:</strong> UK Based • Online Worldwide</p>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer style="padding: 30px 20px; background:#111; color:#aaa; text-align:center; font-size:0.9rem; margin-top:0;">
-    © 2025 Eazy.OS Clinic — Clear Guidance. Modern Support. Real Results.<br>
-    <a href="/terms.html" style="color:#3d8bfd; text-decoration:none; margin:0 8px;">Terms</a> |
-    <a href="/privacy.html" style="color:#3d8bfd; text-decoration:none; margin:0 8px;">Privacy</a>
-  </footer>
+<div class="footer">
+    © 2025 EAZY.OS Clinic — All rights reserved.  
+    No services offered at this stage.
+</div>
 
 </body>
 </html>
