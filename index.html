@@ -9,12 +9,16 @@
     body {
         margin: 0;
         padding: 0;
+
+        /* 🔵 NEW DARK-BLUE SPACE BACKGROUND */
         background: radial-gradient(circle at 50% 50%, #02021a, #000010);
+
         font-family: 'Inter', sans-serif;
         overflow: hidden;
         color: white;
     }
 
+    /* Shooting stars */
     .star {
         position: absolute;
         width: 2px;
@@ -30,6 +34,7 @@
         100% { transform: translate(120vw, 120vh) rotate(45deg); opacity: 0; }
     }
 
+    /* Center container */
     .container {
         position: absolute;
         top: 50%;
@@ -55,6 +60,7 @@
         margin-bottom: 40px;
     }
 
+    /* Chart clarity animation bars */
     .chart {
         display: flex;
         justify-content: center;
@@ -82,6 +88,7 @@
         100% { height: 20px; opacity: 0.3; }
     }
 
+    /* Calculating text animation */
     .calculating {
         font-size: 1rem;
         opacity: 0.7;
@@ -93,6 +100,7 @@
         50% { opacity: 1; }
     }
 
+    /* Footer */
     .footer {
         position: absolute;
         bottom: 20px;
@@ -101,31 +109,12 @@
         opacity: 0.4;
         font-size: 0.8rem;
     }
-
-    /* QR SECTION */
-    .qr-wrapper {
-        margin-top: 40px;
-        text-align: center;
-        opacity: 0.95;
-    }
-
-    .qr-wrapper img {
-        width: 140px;
-        height: 140px;
-        border-radius: 8px;
-        box-shadow: 0 0 20px rgba(91, 91, 247, 0.5);
-    }
-
-    .qr-caption {
-        margin-top: 10px;
-        font-size: 0.9rem;
-        opacity: 0.7;
-    }
 </style>
 </head>
 
 <body>
 
+<!-- Shooting stars generated automatically -->
 <script>
     for (let i = 0; i < 12; i++) {
         let star = document.createElement("div");
@@ -150,14 +139,10 @@
     <div class="calculating">
         Calculating clarity… projecting precision… increasing speed…  
     </div>
-
-    
-    </div>
-
 </div>
 
 <div class="footer">
-    © 2025 EAZY.OS Clinic — All rights reserved.<br>
+    © 2025 EAZY.OS Clinic — All rights reserved.  
     No services offered at this stage.
 </div>
 
