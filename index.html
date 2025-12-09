@@ -16,73 +16,53 @@
       min-height: 100vh;
       background: radial-gradient(circle at top, #1d4ed8 0, #020617 45%, #000000 100%);
       color: #f9fafb;
+      display: flex;
+      justify-content: center;
       padding: 20px;
+      overflow-y: auto;
       position: relative;
-      overflow-x: hidden; /* allow vertical scroll, hide horizontal */
     }
 
-    /* 🔊 ANIMATED BACKGROUND BARS ACROSS PAGE */
-    .bars-bg {
-      position: fixed;
-      inset: 0;
+    /* === ANIMATED BACKGROUND BARS === */
+    .bars {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
       display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      padding: 0 5vw;
-      z-index: 0;
-      pointer-events: none;
-      opacity: 0.55;
+      justify-content: space-around;
+      padding-top: 40px;
     }
 
     .bar {
-      width: 4px;
-      height: 100%;
-      border-radius: 999px;
-      background: linear-gradient(
-        to top,
-        rgba(15, 23, 42, 0),
-        rgba(59, 130, 246, 0.9),
-        rgba(16, 185, 129, 0.95)
-      );
-      transform-origin: bottom center;
-      transform: scaleY(0.2);
-      animation: equalize 0.85s ease-in-out infinite alternate;
-      filter: blur(0.3px);
+      width: 6px;
+      background: linear-gradient(to bottom, #60a5fa, #1e3a8a);
+      border-radius: 3px;
+      animation: rise 1.3s infinite ease-in-out;
     }
 
-    /* randomised timings for each bar */
-    .bar:nth-child(2)  { animation-duration: 0.7s;  animation-delay: -0.1s; }
-    .bar:nth-child(3)  { animation-duration: 1.0s;  animation-delay: -0.2s; }
-    .bar:nth-child(4)  { animation-duration: 0.65s; animation-delay: -0.3s; }
-    .bar:nth-child(5)  { animation-duration: 0.95s; animation-delay: -0.4s; }
-    .bar:nth-child(6)  { animation-duration: 0.8s;  animation-delay: -0.15s; }
-    .bar:nth-child(7)  { animation-duration: 1.05s; animation-delay: -0.25s; }
-    .bar:nth-child(8)  { animation-duration: 0.75s; animation-delay: -0.35s; }
-    .bar:nth-child(9)  { animation-duration: 1.1s;  animation-delay: -0.45s; }
-    .bar:nth-child(10) { animation-duration: 0.7s;  animation-delay: -0.55s; }
-    .bar:nth-child(11) { animation-duration: 0.9s;  animation-delay: -0.05s; }
-    .bar:nth-child(12) { animation-duration: 1.0s;  animation-delay: -0.18s; }
-    .bar:nth-child(13) { animation-duration: 0.8s;  animation-delay: -0.28s; }
-    .bar:nth-child(14) { animation-duration: 1.1s;  animation-delay: -0.38s; }
-    .bar:nth-child(15) { animation-duration: 0.78s; animation-delay: -0.48s; }
+    .bar:nth-child(odd) {
+      animation-duration: 1s;
+      background: linear-gradient(to bottom, #38bdf8, #0ea5e9);
+    }
 
-    @keyframes equalize {
-      0%   { transform: scaleY(0.15); }
-      40%  { transform: scaleY(1.1); }
-      100% { transform: scaleY(0.35); }
+    @keyframes rise {
+      0%   { height: 30px; opacity: 0.4; }
+      50%  { height: 260px; opacity: 1; }
+      100% { height: 40px; opacity: 0.3; }
     }
 
     .page {
       width: 100%;
       max-width: 1100px;
-      background: rgba(15, 23, 42, 0.96);
+      background: rgba(15, 23, 42, 0.95);
       border-radius: 24px;
       padding: 28px 24px 32px;
-      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      position: relative;
-      z-index: 1;
-      margin: 0 auto 24px auto; /* centred, with bottom space so you can scroll */
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.3);
     }
 
     .header {
@@ -161,15 +141,15 @@
       font-size: 0.78rem;
       padding: 4px 10px;
       border-radius: 999px;
-      background: rgba(30, 64, 175, 0.35);
+      background: rgba(30, 64, 175, 0.3);
       color: #bfdbfe;
-      border: 1px solid rgba(129, 140, 248, 0.55);
+      border: 1px solid rgba(129, 140, 248, 0.5);
     }
 
     .badge-alt {
-      background: rgba(15, 118, 110, 0.3);
+      background: rgba(15, 118, 110, 0.25);
       color: #99f6e4;
-      border-color: rgba(45, 212, 191, 0.45);
+      border-color: rgba(45, 212, 191, 0.4);
     }
 
     .hero-note {
@@ -195,9 +175,9 @@
 
     .hero-right {
       border-radius: 20px;
-      border: 1px solid rgba(148, 163, 184, 0.4);
+      border: 1px solid rgba(148, 163, 184, 0.35);
       background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.25), transparent 55%),
-                  radial-gradient(circle at bottom right, rgba(239, 68, 68, 0.3), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(239, 68, 68, 0.35), transparent 55%),
                   #020617;
       padding: 18px 16px 16px;
     }
@@ -217,14 +197,10 @@
     .hero-right-box {
       border-radius: 14px;
       border: 1px dashed rgba(148, 163, 184, 0.7);
-      background: rgba(15, 23, 42, 0.96);
+      background: rgba(15, 23, 42, 0.9);
       padding: 10px 11px;
       font-size: 0.8rem;
       color: #cbd5f5;
-    }
-
-    .hero-right-box p {
-      margin-bottom: 4px;
     }
 
     .divider {
@@ -250,7 +226,7 @@
       font-size: 0.78rem;
       padding: 3px 9px;
       border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.8);
       color: #9ca3af;
     }
 
@@ -275,7 +251,7 @@
     .product-card {
       border-radius: 16px;
       border: 1px solid rgba(55, 65, 81, 0.9);
-      background: rgba(15, 23, 42, 0.97);
+      background: rgba(15, 23, 42, 0.95);
       padding: 12px;
       font-size: 0.86rem;
       display: flex;
@@ -312,17 +288,6 @@
       color: #22c55e;
     }
 
-    .info-row {
-      font-size: 0.8rem;
-      color: #9ca3af;
-      margin-top: 10px;
-    }
-
-    .info-row span {
-      color: #e5e7eb;
-      font-weight: 500;
-    }
-
     .contact-section {
       margin-top: 14px;
     }
@@ -331,7 +296,6 @@
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 10px;
-      margin-top: 6px;
     }
 
     @media (max-width: 640px) {
@@ -352,7 +316,8 @@
     }
 
     input,
-    textarea {
+    textarea,
+    select {
       width: 100%;
       border-radius: 10px;
       border: 1px solid rgba(55, 65, 81, 0.9);
@@ -364,7 +329,8 @@
     }
 
     input:focus,
-    textarea:focus {
+    textarea:focus,
+    select:focus {
       border-color: rgba(59, 130, 246, 0.9);
       box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.6);
     }
@@ -400,24 +366,15 @@
     }
   </style>
 </head>
+
 <body>
-  <!-- Animated background bars across the whole page -->
-  <div class="bars-bg">
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
+
+  <!-- Animated Background Bars -->
+  <div class="bars">
+    <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+    <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+    <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+    <div class="bar"></div><div class="bar"></div><div class="bar"></div>
   </div>
 
   <div class="page">
@@ -469,111 +426,115 @@
 
     <div class="divider"></div>
 
-    <!-- PRODUCTS / SERVICES -->
+    <!-- SERVICES / PRODUCTS -->
     <section>
       <div class="section-header">
         <h2 class="section-title">Services on Offer</h2>
-        <span class="pill">Current menu</span>
+        <span class="pill">Current menu · Subject to refinement</span>
       </div>
 
       <div class="product-grid">
-        <!-- Product 1 -->
         <article class="product-card">
           <div class="product-tag">Tier 1 · Entry</div>
           <div class="product-name">Quick Help Session</div>
-          <p class="product-desc">
-            A focused 45–60 minute session to untangle a problem, make a decision, or design one clear next step.
-          </p>
+          <p class="product-desc">A focused 45–60 minute session to untangle a problem, make a decision, or design one clear next step.</p>
           <p class="product-meta">Best for: getting unstuck fast.</p>
           <p class="product-cta">Outcome: one clear solution or plan you can act on today.</p>
         </article>
 
-        <!-- Product 2 -->
         <article class="product-card">
           <div class="product-tag">Tier 2 · Setup</div>
           <div class="product-name">Guided O.S Setup</div>
-          <p class="product-desc">
-            We build a simple personal operating system with you — routines, prompts, and tools tailored to your life.
-          </p>
+          <p class="product-desc">We build a simple personal operating system with you — routines, prompts, and tools tailored to your life.</p>
           <p class="product-meta">Best for: people who want structure but hate overcomplication.</p>
           <p class="product-cta">Outcome: a working v1 system you can test in real life.</p>
         </article>
 
-        <!-- Product 3 -->
         <article class="product-card">
           <div class="product-tag">Tier 3 · Build</div>
           <div class="product-name">Micro-OS Build</div>
-          <p class="product-desc">
-            A compact custom system for one area (trading, content, work, study, etc.), designed for daily use.
-          </p>
+          <p class="product-desc">A compact custom system for one area (trading, content, work, study, etc.), designed for daily use.</p>
           <p class="product-meta">Best for: operators with one priority they want to dominate.</p>
           <p class="product-cta">Outcome: a documented micro-OS ready to run.</p>
         </article>
 
-        <!-- Product 4 -->
         <article class="product-card">
           <div class="product-tag">Tier 4 · Executive</div>
           <div class="product-name">Executive Consultation</div>
-          <p class="product-desc">
-            Deep dive on your ecosystem, strategy, and bottlenecks. We zoom out, then design a smarter way forward.
-          </p>
+          <p class="product-desc">Deep dive on your ecosystem, strategy, and bottlenecks. We zoom out, then design a smarter way forward.</p>
           <p class="product-meta">Best for: founders, leaders, or high-leverage operators.</p>
           <p class="product-cta">Outcome: strategic clarity + concrete execution map.</p>
         </article>
       </div>
-
-      <p class="info-row">
-        <span>Note:</span> Sessions are tailored to you. Final details are confirmed privately before we start.
-      </p>
     </section>
 
     <div class="divider"></div>
 
-    <!-- CONTACT / INTAKE -->
+    <!-- CONTACT FORM -->
     <section class="contact-section">
       <div class="section-header">
         <h2 class="section-title">Interested? Start with a message.</h2>
-        <span class="pill">Light intake</span>
+        <span class="pill">Light intake · No pressure</span>
       </div>
 
-      <!-- 🔗 SENDS DIRECTLY TO YOUR EMAIL -->
       <form action="https://formspree.io/f/xblnaavn" method="POST">
-
         <div>
           <label for="name">Name</label>
           <input id="name" name="name" type="text" placeholder="What should we call you?" />
         </div>
+
         <div>
           <label for="email">Email</label>
           <input id="email" name="email" type="email" placeholder="Where can we reply?" />
         </div>
+
         <div class="full">
           <label for="service">Which offer are you interested in?</label>
-          <input
-            id="service"
-            name="service"
-            type="text"
-            placeholder="Quick Help, Guided Setup, Micro-OS, Executive, or ‘not sure yet’"
-          />
+          <input id="service" name="service" type="text" placeholder="Quick Help, Guided Setup, Micro-OS, Executive, or ‘not sure yet’" />
         </div>
+
+        <div class="full">
+          <label for="urgency">How soon do you need help?</label>
+          <select id="urgency" name="urgency">
+            <option value="Today">Today</option>
+            <option value="This week">This week</option>
+            <option value="This month">This month</option>
+            <option value="Just exploring">Just exploring</option>
+          </select>
+        </div>
+
+        <div class="full">
+          <label for="contact">Preferred contact method</label>
+          <select id="contact" name="contact">
+            <option value="Email">Email</option>
+            <option value="Phone">Phone</option>
+            <option value="Either">Either</option>
+          </select>
+        </div>
+
+        <div class="full">
+          <label for="source">How did you hear about EAZY.OS Clinic?</label>
+          <input id="source" name="source" type="text" placeholder="TikTok, referral, search, etc." />
+        </div>
+
         <div class="full">
           <label for="message">Tell us a bit about your situation</label>
-          <textarea
-            id="message"
-            name="message"
-            placeholder="What’s going on right now, and what would ‘better’ look like for you?"
-          ></textarea>
+          <textarea id="message" name="message" placeholder="What’s going on right now, and what would ‘better’ look like for you?"></textarea>
         </div>
-        <button type="submit">Send message</button>
+
+        <!-- REDIRECT TO YOUR CUSTOM THANK YOU PAGE -->
+        <input type="hidden" name="_redirect" value="https://eazyosclinic.com/thanks.html" />
+
+        <button type="submit">Send Message</button>
       </form>
 
       <p class="contact-note">
-        You’ll get a direct reply by email once we’ve read your message.
+        You'll receive a confirmation email immediately after sending your message.
       </p>
     </section>
 
     <p class="footer-note">
-      EAZY.OS Clinic
+      EAZY.OS Clinic · Private pre-launch environment
     </p>
   </div>
 </body>
