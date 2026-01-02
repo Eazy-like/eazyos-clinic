@@ -3,539 +3,82 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EAZY.OS Clinic — Welcome</title>
+  <title>Eazy OS Clinic</title>
+
   <style>
-    * {
-      box-sizing: border-box;
+    html, body {
       margin: 0;
       padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-
-    body {
-      min-height: 100vh;
-      background: radial-gradient(circle at top, #1d4ed8 0, #020617 45%, #000000 100%);
-      color: #f9fafb;
-      display: flex;
-      justify-content: center;
-      padding: 20px;
-      overflow-y: auto;
-      position: relative;
-    }
-
-    /* === ANIMATED BACKGROUND BARS === */
-    .bars {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
       height: 100%;
+      background: radial-gradient(circle at top, #0a0f1f, #02030a 70%);
+      color: #e6e9f0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       overflow: hidden;
-      z-index: -1;
+    }
+
+    .center {
+      height: 100%;
       display: flex;
-      justify-content: space-around;
-      padding-top: 40px;
-    }
-
-    .bar {
-      width: 6px;
-      background: linear-gradient(to bottom, #60a5fa, #1e3a8a);
-      border-radius: 3px;
-      animation: rise 1.3s infinite ease-in-out;
-    }
-
-    .bar:nth-child(odd) {
-      animation-duration: 1s;
-      background: linear-gradient(to bottom, #38bdf8, #0ea5e9);
-    }
-
-    @keyframes rise {
-      0%   { height: 30px; opacity: 0.4; }
-      50%  { height: 260px; opacity: 1; }
-      100% { height: 40px; opacity: 0.3; }
-    }
-
-    .page {
-      width: 100%;
-      max-width: 1100px;
-      background: rgba(15, 23, 42, 0.95);
-      border-radius: 24px;
-      padding: 28px 24px 32px;
-      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.85);
-      border: 1px solid rgba(148, 163, 184, 0.3);
-    }
-
-    .header {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
       align-items: center;
-      gap: 12px;
-      margin-bottom: 24px;
-    }
-
-    .logo-block {
-      display: flex;
+      justify-content: center;
       flex-direction: column;
-      gap: 4px;
+      text-align: center;
     }
 
-    .logo-title {
-      font-size: 1.6rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+    h1 {
+      font-size: 2.2rem;
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+      animation: pulse 3.5s ease-in-out infinite;
     }
 
-    .logo-sub {
-      font-size: 0.86rem;
-      color: #9ca3af;
-    }
-
-    .tag {
-      font-size: 0.78rem;
-      padding: 4px 11px;
-      border-radius: 999px;
-      border: 1px solid rgba(96, 165, 250, 0.7);
-      color: #bfdbfe;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      white-space: nowrap;
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.2fr);
-      gap: 24px;
-      align-items: center;
-      margin-bottom: 24px;
-    }
-
-    @media (max-width: 860px) {
-      .hero {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .hero-title {
-      font-size: 1.9rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .hero-sub {
-      font-size: 0.98rem;
-      color: #9ca3af;
-      line-height: 1.6;
-      margin-bottom: 16px;
-    }
-
-    .hero-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 18px;
-    }
-
-    .badge {
-      font-size: 0.78rem;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(30, 64, 175, 0.3);
-      color: #bfdbfe;
-      border: 1px solid rgba(129, 140, 248, 0.5);
-    }
-
-    .badge-alt {
-      background: rgba(15, 118, 110, 0.25);
-      color: #99f6e4;
-      border-color: rgba(45, 212, 191, 0.4);
-    }
-
-    .hero-note {
-      font-size: 0.8rem;
-      color: #6b7280;
-    }
-
-    .hero-list {
-      margin-top: 8px;
-      font-size: 0.9rem;
-      color: #9ca3af;
-      list-style: none;
-    }
-
-    .hero-list li {
-      margin-bottom: 4px;
-    }
-
-    .hero-list span {
-      color: #e5e7eb;
-      font-weight: 500;
-    }
-
-    .hero-right {
-      border-radius: 20px;
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.25), transparent 55%),
-                  radial-gradient(circle at bottom right, rgba(239, 68, 68, 0.35), transparent 55%),
-                  #020617;
-      padding: 18px 16px 16px;
-    }
-
-    .hero-right-title {
-      font-size: 0.98rem;
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-
-    .hero-right-sub {
-      font-size: 0.82rem;
-      color: #9ca3af;
-      margin-bottom: 10px;
-    }
-
-    .hero-right-box {
-      border-radius: 14px;
-      border: 1px dashed rgba(148, 163, 184, 0.7);
-      background: rgba(15, 23, 42, 0.9);
-      padding: 10px 11px;
-      font-size: 0.8rem;
-      color: #cbd5f5;
-    }
-
-    .divider {
-      margin: 18px 0 16px;
-      border-top: 1px solid rgba(55, 65, 81, 0.9);
-    }
-
-    .section-header {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 10px;
-    }
-
-    .section-title {
+    .sub {
       font-size: 1rem;
-      font-weight: 600;
+      opacity: 0.65;
+      letter-spacing: 0.15em;
+      animation: breathe 6s ease-in-out infinite;
     }
 
-    .pill {
-      font-size: 0.78rem;
-      padding: 3px 9px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.8);
-      color: #9ca3af;
-    }
-
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    @media (max-width: 1024px) {
-      .product-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 0.6;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.03);
       }
     }
 
-    @media (max-width: 600px) {
-      .product-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
+    @keyframes breathe {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 0.8; }
     }
 
-    .product-card {
-      border-radius: 16px;
-      border: 1px solid rgba(55, 65, 81, 0.9);
-      background: rgba(15, 23, 42, 0.95);
-      padding: 12px;
-      font-size: 0.86rem;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
+    /* subtle moving glow */
+    .glow {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(100,120,255,0.12), transparent 70%);
+      filter: blur(60px);
+      animation: float 12s ease-in-out infinite;
     }
 
-    .product-tag {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: #9ca3af;
-    }
-
-    .product-name {
-      font-size: 0.94rem;
-      font-weight: 600;
-      color: #e5e7eb;
-    }
-
-    .product-desc {
-      font-size: 0.82rem;
-      color: #9ca3af;
-    }
-
-    .product-meta {
-      font-size: 0.78rem;
-      color: #a5b4fc;
-    }
-
-    .product-cta {
-      margin-top: 6px;
-      font-size: 0.78rem;
-      color: #22c55e;
-    }
-
-    .contact-section {
-      margin-top: 14px;
-    }
-
-    form {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    @media (max-width: 640px) {
-      form {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    form .full {
-      grid-column: 1 / -1;
-    }
-
-    label {
-      font-size: 0.78rem;
-      color: #d1d5db;
-      display: block;
-      margin-bottom: 3px;
-    }
-
-    input,
-    textarea,
-    select {
-      width: 100%;
-      border-radius: 10px;
-      border: 1px solid rgba(55, 65, 81, 0.9);
-      background: rgba(15, 23, 42, 0.9);
-      padding: 7px 10px;
-      font-size: 0.85rem;
-      color: #e5e7eb;
-      outline: none;
-    }
-
-    input:focus,
-    textarea:focus,
-    select:focus {
-      border-color: rgba(59, 130, 246, 0.9);
-      box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.6);
-    }
-
-    textarea {
-      min-height: 90px;
-      resize: vertical;
-    }
-
-    button {
-      border: none;
-      border-radius: 999px;
-      padding: 8px 15px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      cursor: pointer;
-      background: linear-gradient(135deg, #22c55e, #16a34a);
-      color: #f9fafb;
-      justify-self: flex-start;
-    }
-
-    .contact-note {
-      margin-top: 6px;
-      font-size: 0.76rem;
-      color: #6b7280;
-    }
-
-    .footer-note {
-      margin-top: 14px;
-      font-size: 0.72rem;
-      color: #6b7280;
-      text-align: right;
+    @keyframes float {
+      0% { transform: translate(-120px, -80px); }
+      50% { transform: translate(120px, 80px); }
+      100% { transform: translate(-120px, -80px); }
     }
   </style>
 </head>
 
 <body>
+  <div class="glow"></div>
 
-  <!-- Animated Background Bars -->
-  <div class="bars">
-    <div class="bar"></div><div class="bar"></div><div class="bar"></div>
-    <div class="bar"></div><div class="bar"></div><div class="bar"></div>
-    <div class="bar"></div><div class="bar"></div><div class="bar"></div>
-    <div class="bar"></div><div class="bar"></div><div class="bar"></div>
-  </div>
-
-  <div class="page">
-    <!-- HEADER -->
-    <header class="header">
-      <div class="logo-block">
-        <div class="logo-title">EAZY.OS CLINIC</div>
-        <div class="logo-sub">Custom Personal Operating Systems · Built Around You</div>
-      </div>
-      <div class="tag">Pre-Launch · Services Preview</div>
-    </header>
-
-    <!-- HERO -->
-    <section class="hero">
-      <div>
-        <h1 class="hero-title">Build your own lane with a personal O.S.</h1>
-        <p class="hero-sub">
-          EAZY.OS Clinic helps you turn your brain, habits, and work into a clear operating system.
-          Choose the level you need — from quick help to full Micro-OS builds and executive consulting.
-        </p>
-
-        <div class="hero-badges">
-          <span class="badge">1:1 · Human + AI Hybrid</span>
-          <span class="badge badge-alt">Execution Over Theory</span>
-        </div>
-
-        <p class="hero-note">Core offers</p>
-        <ul class="hero-list">
-          <li><span>Quick Help Session</span> — fast tactical support when you’re stuck.</li>
-          <li><span>Guided Setup</span> — we build your first simple O.S together.</li>
-          <li><span>Micro-OS Build</span> — a compact system tailored to one area of your life or business.</li>
-          <li><span>Executive Consultation</span> — deep, strategic session for founders/operators.</li>
-        </ul>
-      </div>
-
-      <!-- RIGHT-HAND PANEL -->
-      <aside class="hero-right">
-        <div class="hero-right-title">How it works</div>
-        <div class="hero-right-sub">
-          We meet you where you are, map your situation, and then turn it into a simple, repeatable system.
-        </div>
-        <div class="hero-right-box">
-          <p>1. Choose the service that matches your current position.</p>
-          <p>2. We run a short intake to understand your world.</p>
-          <p>3. You leave with clear structure, not just motivation.</p>
-        </div>
-      </aside>
-    </section>
-
-    <div class="divider"></div>
-
-    <!-- SERVICES / PRODUCTS -->
-    <section>
-      <div class="section-header">
-        <h2 class="section-title">Services on Offer</h2>
-        <span class="pill">Current menu · Subject to refinement</span>
-      </div>
-
-      <div class="product-grid">
-        <article class="product-card">
-          <div class="product-tag">Tier 1 · Entry</div>
-          <div class="product-name">Quick Help Session</div>
-          <p class="product-desc">A focused 45–60 minute session to untangle a problem, make a decision, or design one clear next step.</p>
-          <p class="product-meta">Best for: getting unstuck fast.</p>
-          <p class="product-cta">Outcome: one clear solution or plan you can act on today.</p>
-        </article>
-
-        <article class="product-card">
-          <div class="product-tag">Tier 2 · Setup</div>
-          <div class="product-name">Guided O.S Setup</div>
-          <p class="product-desc">We build a simple personal operating system with you — routines, prompts, and tools tailored to your life.</p>
-          <p class="product-meta">Best for: people who want structure but hate overcomplication.</p>
-          <p class="product-cta">Outcome: a working v1 system you can test in real life.</p>
-        </article>
-
-        <article class="product-card">
-          <div class="product-tag">Tier 3 · Build</div>
-          <div class="product-name">Micro-OS Build</div>
-          <p class="product-desc">A compact custom system for one area (trading, content, work, study, etc.), designed for daily use.</p>
-          <p class="product-meta">Best for: operators with one priority they want to dominate.</p>
-          <p class="product-cta">Outcome: a documented micro-OS ready to run.</p>
-        </article>
-
-        <article class="product-card">
-          <div class="product-tag">Tier 4 · Executive</div>
-          <div class="product-name">Executive Consultation</div>
-          <p class="product-desc">Deep dive on your ecosystem, strategy, and bottlenecks. We zoom out, then design a smarter way forward.</p>
-          <p class="product-meta">Best for: founders, leaders, or high-leverage operators.</p>
-          <p class="product-cta">Outcome: strategic clarity + concrete execution map.</p>
-        </article>
-      </div>
-    </section>
-
-    <div class="divider"></div>
-
-    <!-- CONTACT FORM -->
-    <section class="contact-section">
-      <div class="section-header">
-        <h2 class="section-title">Interested? Start with a message.</h2>
-        <span class="pill">Light intake · No pressure</span>
-      </div>
-
-      <form action="https://formspree.io/f/xblnaavn" method="POST">
-        <div>
-          <label for="name">Name</label>
-          <input id="name" name="name" type="text" placeholder="What should we call you?" />
-        </div>
-
-        <div>
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" placeholder="Where can we reply?" />
-        </div>
-
-        <div class="full">
-          <label for="service">Which offer are you interested in?</label>
-          <input id="service" name="service" type="text" placeholder="Quick Help, Guided Setup, Micro-OS, Executive, or ‘not sure yet’" />
-        </div>
-
-        <div class="full">
-          <label for="urgency">How soon do you need help?</label>
-          <select id="urgency" name="urgency">
-            <option value="Today">Today</option>
-            <option value="This week">This week</option>
-            <option value="This month">This month</option>
-            <option value="Just exploring">Just exploring</option>
-          </select>
-        </div>
-
-        <div class="full">
-          <label for="contact">Preferred contact method</label>
-          <select id="contact" name="contact">
-            <option value="Email">Email</option>
-            <option value="Phone">Phone</option>
-            <option value="Either">Either</option>
-          </select>
-        </div>
-
-        <div class="full">
-          <label for="source">How did you hear about EAZY.OS Clinic?</label>
-          <input id="source" name="source" type="text" placeholder="TikTok, referral, search, etc." />
-        </div>
-
-        <div class="full">
-          <label for="message">Tell us a bit about your situation</label>
-          <textarea id="message" name="message" placeholder="What’s going on right now, and what would ‘better’ look like for you?"></textarea>
-        </div>
-
-        <!-- REDIRECT TO YOUR CUSTOM THANK YOU PAGE -->
-        <input type="hidden" name="_redirect" value="https://eazyosclinic.com/thanks.html" />
-
-        <button type="submit">Send Message</button>
-      </form>
-
-      <p class="contact-note">
-        You'll receive a confirmation email immediately after sending your message.
-      </p>
-    </section>
-
-    <p class="footer-note">
-      EAZY.OS Clinic · Private pre-launch environment
-    </p>
+  <div class="center">
+    <h1>EAZY OS CLINIC</h1>
+    <div class="sub">EVOLVING · SOON COME…</div>
   </div>
 </body>
 </html>
