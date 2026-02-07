@@ -1,25 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Terms & Conditions — Eazy.OS Clinic</title>
+
   <style>
-    body { font-family: Arial, sans-serif; background:#0d0d0d; color:#fff; padding:30px; line-height:1.7; }
-    h1 { color:#3d8bfd; }
-    a { color:#3d8bfd; }
-    .container { max-width:800px; margin:auto; }
+    :root {
+      --bg-deep: #02030a;
+      --bg-mid: #0a0f1f;
+      --text-main: #e6e9f0;
+      --text-dim: rgba(230,233,240,0.65);
+      --accent: #3d8bfd;
+      --container-bg: rgba(255,255,255,0.03);
+      --border-soft: rgba(255,255,255,0.06);
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      background: radial-gradient(circle at top, var(--bg-mid), var(--bg-deep) 70%);
+      color: var(--text-main);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.75;
+    }
+
+    body {
+      padding: 60px 24px;
+    }
+
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 42px 40px;
+      background: var(--container-bg);
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      backdrop-filter: blur(6px);
+    }
+
+    h1 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.9rem;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+    }
+
+    h2 {
+      margin-top: 2.4rem;
+      margin-bottom: 0.6rem;
+      font-size: 1.15rem;
+      letter-spacing: 0.04em;
+      color: var(--accent);
+    }
+
+    p {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      color: var(--text-dim);
+    }
+
+    ul {
+      margin: 0.5rem 0 1.2rem 1.2rem;
+      padding: 0;
+      color: var(--text-dim);
+    }
+
+    li {
+      margin-bottom: 0.4rem;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .meta {
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      opacity: 0.6;
+      margin-bottom: 2.2rem;
+    }
   </style>
 </head>
+
 <body>
   <div class="container">
+
     <h1>Terms & Conditions</h1>
-    <p>Last updated: January 2025</p>
+    <div class="meta">Last updated: January 2025</div>
 
     <h2>1. Overview</h2>
     <p>
       Eazy.OS Clinic provides digital support, guidance, system setup services, and consultations.
-      By using our website or purchasing any service, you agree to these Terms and Conditions.
+      By using this website or purchasing any service, you agree to these Terms and Conditions.
     </p>
 
     <h2>2. Services Provided</h2>
@@ -31,56 +111,62 @@
       <li>Executive Consultation — £150</li>
     </ul>
     <p>
-      All services are delivered digitally through written communication, video call, or recorded materials depending on the service tier.
+      All services are delivered digitally through written communication, video call, or recorded
+      materials depending on the service tier.
     </p>
 
     <h2>3. Payment Policy</h2>
     <p>
-      Payments are processed securely via Stripe. We do not store or have access to customer payment information.
-      Prices listed on our website include all applicable fees unless stated otherwise.
+      Payments are processed securely via Stripe. We do not store or have access to customer payment
+      information. Prices listed include applicable fees unless stated otherwise.
     </p>
 
     <h2>4. Delivery & Response Times</h2>
     <p>
-      - Quick Help: You will receive a response within 24 hours.<br>
-      - Guided Setup: A step-by-step session will be arranged within 48 hours.<br>
-      - Micro-O.S System: Delivered within 24–48 hours depending on complexity.<br>
-      - Executive Consultation: A booking link will be sent after payment.
+      Quick Help responses are typically provided within 24 hours.<br>
+      Guided Setup sessions are arranged within 48 hours.<br>
+      Micro-O.S Systems are delivered within 24–48 hours depending on complexity.<br>
+      Executive Consultation bookings are sent after payment confirmation.
     </p>
 
     <h2>5. Refund Policy</h2>
     <p>
-      Due to the nature of digital services, all purchases are <strong>non-refundable once work has begun or materials have been delivered</strong>.
-      If we are unable to deliver the service for any reason, a full refund will be issued automatically.
+      Due to the nature of digital services, all purchases are <strong>non-refundable once work has
+      begun or materials have been delivered</strong>. If we are unable to deliver a service for any
+      reason, a full refund will be issued.
     </p>
 
     <h2>6. Client Responsibilities</h2>
     <p>
-      You agree to provide accurate information when requesting services and to communicate promptly to ensure timely delivery.
+      You agree to provide accurate information and to communicate promptly in order to support
+      timely service delivery.
     </p>
 
     <h2>7. No Financial or Legal Advice</h2>
     <p>
-      Eazy.OS Clinic does not provide financial, investment, tax, or legal advice. 
-      Any guidance should be understood as general support for digital organisation, system clarity, and workflow improvement.
+      Eazy.OS Clinic does not provide financial, investment, tax, or legal advice. All guidance is
+      intended solely for digital organisation, system clarity, and workflow improvement.
     </p>
 
     <h2>8. Liability</h2>
     <p>
-      We are not liable for business losses, indirect damages, or system misconfigurations caused by misuse of the advice or services provided.
-      Our maximum liability is limited to the amount paid for the service in question.
+      We are not liable for business losses, indirect damages, or system misconfigurations arising
+      from misuse of the services provided. Our maximum liability is limited to the amount paid for
+      the relevant service.
     </p>
 
     <h2>9. Intellectual Property</h2>
     <p>
-      All system frameworks, diagrams, structures, and materials created by Eazy.OS Clinic remain our intellectual property unless explicitly licensed otherwise.
+      All frameworks, diagrams, structures, and materials created by Eazy.OS Clinic remain our
+      intellectual property unless explicitly licensed otherwise.
     </p>
 
     <h2>10. Contact</h2>
     <p>
-      For questions regarding these Terms, contact us at:  
+      For questions regarding these Terms, contact:<br>
       <a href="mailto:support@eazyosclinic.com">support@eazyosclinic.com</a>
     </p>
+
   </div>
 </body>
 </html>
