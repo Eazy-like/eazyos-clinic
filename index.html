@@ -317,6 +317,41 @@
     }
 
     @media (max-width: 820px) {
+      :root {
+        --text: #fbfcff;
+        --muted: #c3cad7;
+        --dim: #99a4b4;
+        --line: rgba(255, 255, 255, 0.15);
+        --line-strong: rgba(166, 188, 235, 0.28);
+        --accent: #a9c5ff;
+        --accent-soft: #eef4ff;
+      }
+
+      body {
+        background:
+          radial-gradient(circle at 12% -8%, rgba(30, 64, 134, 0.16), transparent 18rem),
+          radial-gradient(circle at 96% 10%, rgba(49, 27, 89, 0.16), transparent 20rem),
+          linear-gradient(180deg, #040611 0%, #02030a 48%, #010207 100%);
+      }
+
+      body::before {
+        top: -140px;
+        left: -170px;
+        width: 310px;
+        height: 310px;
+        opacity: 0.26;
+        filter: blur(54px);
+      }
+
+      body::after {
+        top: 18vh;
+        right: -220px;
+        width: 330px;
+        height: 330px;
+        opacity: 0.22;
+        filter: blur(58px);
+      }
+
       .wrap {
         width: min(100% - 28px, var(--max));
       }
@@ -328,6 +363,32 @@
 
       section {
         padding: 54px 0;
+      }
+
+      .eyebrow,
+      .lead,
+      .action-line,
+      .founder,
+      .section-head p,
+      .card p,
+      .process p,
+      .notice p,
+      .cta p {
+        text-shadow: 0 1px 18px rgba(0, 0, 0, 0.48);
+      }
+
+      .card,
+      .process,
+      .notice,
+      .signal-list li {
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.012)),
+          rgba(4, 7, 15, 0.9);
+        border-color: rgba(255, 255, 255, 0.15);
+      }
+
+      .button {
+        box-shadow: 0 14px 34px rgba(20, 47, 98, 0.34);
       }
 
       .grid,
